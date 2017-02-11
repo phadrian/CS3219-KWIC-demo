@@ -31,6 +31,7 @@ public class MasterControlTest {
 		ignoreWords.add("after");
 		
 		Set<String> requiredWords = new HashSet<>();
+		requiredWords.add("");
 
 		List<String> input = new ArrayList<>();
 		input.add("The Day after Tomorrow");
@@ -60,6 +61,7 @@ public class MasterControlTest {
 		ignoreWords.add("after");
 
 		Set<String> requiredWords = new HashSet<>();
+		requiredWords.add("");
 		
 		List<String> input = new ArrayList<>();
 		input.add("The day after tomorrow");
