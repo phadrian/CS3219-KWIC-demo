@@ -38,7 +38,9 @@ public class RequiredWordsFilterTest {
 
 	@Test
 	public void testNoRequiredWords() {
-		filter.setRequiredWords(new HashSet<>());
+        Set<String> words = new HashSet<>();
+        words.add("");
+		filter.setRequiredWords(words);
 
 		inputLineStorage.addLine("Space Odyssey 2001: a");
 		inputLineStorage.addLine("2001: a Space Odyssey");
