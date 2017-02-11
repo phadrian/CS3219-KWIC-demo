@@ -36,21 +36,6 @@ public class MasterControl {
 		resultLines.addObserver(alphabetizer);
 	}
 
-	public List<String> run(List<String> input, Set<String> ignoredWords) {
-		rawInputLines.clearLines();
-		resultLines.clearLines();
-
-		// Set ignore words (make them lowercase for comparison)
-		shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
-		
-		// Add data line by line
-		for (String line : input) {
-			rawInputLines.addLine(line);
-		}
-		
-		return resultLines.getAll();
-	}
-
     public List<String> run(List<String> input, Set<String> ignoredWords, Set<String> requiredWords) {
         rawInputLines.clearLines();
         resultLines.clearLines();
