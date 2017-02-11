@@ -30,6 +30,9 @@ public class RequiredWordsFilter implements Observer {
 			Line line = storage.get(event.getChangedLine());
 
 			// TODO: add filtered result to result storage
+			if (!containsRequiredWord(line)) {
+				storage.delete(event.getChangedLine());
+			}
 			
 			break;
 		default:
@@ -37,4 +40,7 @@ public class RequiredWordsFilter implements Observer {
 		}
 	}
 
+	private boolean containsRequiredWord(Line line) {
+		return requiredWords.contains(line.getWord(0).toLowerCase());
+	}
 }
