@@ -30,11 +30,27 @@ public class RequiredWordsFilter implements Observer {
 			Line line = storage.get(event.getChangedLine());
 
 			// TODO: add filtered result to result storage
-			
+			doFilter(line);
 			break;
 		default:
 			break;
 		}
 	}
+
+	private void doFilter(Line line) {
+	    // Check if any required words specified
+        if (requiredWords.isEmpty()) {
+            resultStorage.addLine(line);
+            return;
+        }
+	    // Add if first word is a required word
+        if (isRequiredWord(line.getWord(0))) {
+            resultStorage.addLine(line);
+        }
+	}
+
+    private boolean isRequiredWord(String word) {
+        return requiredWords.contains(word.toLowerCase());
+    }
 
 }
