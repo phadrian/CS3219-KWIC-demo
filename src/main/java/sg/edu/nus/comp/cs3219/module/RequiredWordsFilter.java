@@ -1,6 +1,7 @@
 package sg.edu.nus.comp.cs3219.module;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
@@ -39,7 +40,7 @@ public class RequiredWordsFilter implements Observer {
 
 	private void doFilter(Line line) {
 	    // Check if any required words specified
-        if (requiredWords.isEmpty()) {
+        if (noRequiredWords()) {
             resultStorage.addLine(line);
             return;
         }
@@ -53,4 +54,11 @@ public class RequiredWordsFilter implements Observer {
         return requiredWords.contains(word.toLowerCase());
     }
 
+    private boolean noRequiredWords() {
+    	if (requiredWords.size() == 1) {
+    		Iterator itr = requiredWords.iterator();
+    		return itr.next().equals("");
+    	}
+    	return false;
+    }
 }
