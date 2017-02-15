@@ -26,13 +26,13 @@ public class MasterControl {
 		resultLines = new LineStorage();
 
 		// Sub-modules
-		shifter = new CircularShifter(shiftedLines);
+		shifter = new CircularShifter(shiftedLines);    // shifter outputs to a new storage
 		filter = new RequiredWordsFilter(resultLines);  // create filter sub module
 		alphabetizer = new Alphabetizer();
 
 		// Set up observation
 		rawInputLines.addObserver(shifter);
-		shiftedLines.addObserver(filter);   // insert observation of shifted lines
+		shiftedLines.addObserver(filter);   // insert observer for shifted lines
 		resultLines.addObserver(alphabetizer);
 	}
 
@@ -44,7 +44,7 @@ public class MasterControl {
         shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
 
         // Set required words (make them lowercase for comparison)
-        filter.setRequiredWords(this.transformSetToLowercase(requiredWords));
+        //filter.setRequiredWords(this.transformSetToLowercase(requiredWords));
 
         // Add data line by line
         for (String line : input) {
