@@ -44,7 +44,7 @@ public class MasterControl {
         shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
 
         // Set required words (make them lowercase for comparison)
-        //filter.setRequiredWords(this.transformSetToLowercase(requiredWords));
+        filter.setRequiredWords(this.transformSetToLowercase(requiredWords));
 
         // Add data line by line
         for (String line : input) {
